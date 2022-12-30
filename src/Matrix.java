@@ -21,8 +21,11 @@ public class Matrix {
         this.value = value;
         this.result_matrix = new float[matrix1.length][matrix1[0].length];
     }
+    public Matrix(float[][] matrix1) {
+        this.matrix1 = matrix1;
+    }
 
-    float[][] multiply_matrices() {
+    public float[][] multiply_matrices() {
         if (matrix1[0].length != matrix2.length)
             throw new ArrayIndexOutOfBoundsException();
 
@@ -33,7 +36,7 @@ public class Matrix {
         return result_matrix;
     }
 
-    float[][] multiply_matrix_array() {
+    public float[][] multiply_matrix_array() {
         if (matrix1.length != matrix3.length)
             throw new ArrayIndexOutOfBoundsException();
 
@@ -43,14 +46,14 @@ public class Matrix {
         System.out.println("result_matrix: " + Arrays.deepToString(result_matrix));
         return result_matrix;
     }
-    float[][] add_matrix_digit() {
+    public float[][] add_matrix_digit() {
         for (int i = 0; i < matrix1.length; i++)
             for (int j = 0; j < matrix1[i].length; j++)
                 result_matrix[i][j] = matrix1[i][j] + value;
         return result_matrix;
     }
 
-    float[][] add_matrices() {
+    public float[][] add_matrices() {
         if (matrix1.length != matrix2.length & matrix1[0].length != matrix2[0].length)
             throw new ArrayIndexOutOfBoundsException();
 
@@ -60,7 +63,7 @@ public class Matrix {
         return result_matrix;
     }
 
-    float[][] minus_matrices() {
+    public float[][] minus_matrices() {
         if (matrix1.length != matrix2.length & matrix1[0].length != matrix2[0].length)
             throw new ArrayIndexOutOfBoundsException();
 
@@ -68,5 +71,14 @@ public class Matrix {
             for (int j = 0; j < matrix1[i].length; j++)
                 result_matrix[i][j] = matrix1[i][j] - matrix2[i][j];
         return result_matrix;
+    }
+
+    public float find_max() {
+        float max_value = -1000000;
+        for (float[] floats : matrix1)
+            for (float aFloat : floats)
+                if (aFloat > max_value)
+                    max_value = aFloat;
+        return max_value;
     }
 }
