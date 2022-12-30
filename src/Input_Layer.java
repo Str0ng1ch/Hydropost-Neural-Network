@@ -5,7 +5,7 @@ public class Input_Layer extends Layer {
 
     public void feedforward() {
         for (int i = 0; i < neurons; i++) {
-            Neuron neuron = new Neuron(inputs);
+            Neuron neuron = new Neuron(new Normalization(inputs).normalize());
             neuron.feedforward();
             layer[i] = neuron;
         }
