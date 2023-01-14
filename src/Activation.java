@@ -22,4 +22,7 @@ public class Activation {
         System.out.println("Activation: " + Arrays.deepToString(result_matrix));
         return result_matrix;
     }
+//    f(x) = cx - linear
+//    f(x) = ln(x) - linear
+//    c - вручную
 }
