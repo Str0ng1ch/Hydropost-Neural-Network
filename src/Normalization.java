@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Normalization {
     public float[][] inputs, normalized_inputs;
 
@@ -7,10 +9,20 @@ public class Normalization {
     }
 
     public float[][] normalize() {
-        float max_value = new Matrix(inputs).find_max();
-        for (int i = 0; i < inputs.length; i++)
-            for (int j = 0; j < inputs[i].length; j++)
-                normalized_inputs[i][j] = inputs[i][j] / max_value;
-        return normalized_inputs;
+        float[][] tmp = new Matrix(inputs).transpose();
+        System.out.println("first: " + Arrays.deepToString(tmp));
+        for (int i = 0; i < tmp.length; i++) {
+            float max_value = new Matrix(tmp[i]).find_max_in_array();
+            for (int j = 0; j < tmp[i].length; j++)
+                tmp[i][j] /= max_value;
+        }
+        System.out.println("second: " + Arrays.deepToString(tmp));
+        return new Matrix(tmp).transpose();
+    }
+
+    public float[][] denormalize() {
+        // TODO
+//        текущее * (максимальное - минимальное) + минимальное
+        return inputs;
     }
 }
