@@ -5,7 +5,7 @@ import java.util.List;
 public class Normalization {
 
     public float[][] inputs, normalized_inputs, denormalized_inputs;
-    List<double[]> minMax = new ArrayList<>();
+    public static List<double[]> minMax = new ArrayList<>();
 
     public Normalization(float[][] inputs) {
         this.inputs = inputs;
