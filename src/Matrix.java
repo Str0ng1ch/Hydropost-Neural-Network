@@ -90,6 +90,14 @@ public class Matrix {
         return max_value;
     }
 
+    public float find_min_in_array() {
+        float min_value = 1000000;
+        for (float value : array1)
+            if (value < min_value)
+                min_value = value;
+        return min_value;
+    }
+
     public float[][] transpose() {
         result_matrix = new float[matrix1[0].length][matrix1.length];
         for (int i = 0; i < matrix1.length; i++) {
