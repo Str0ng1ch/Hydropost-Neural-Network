@@ -22,6 +22,18 @@ public class Activation {
         System.out.println("Activation: " + Arrays.deepToString(result_matrix));
         return result_matrix;
     }
+    private float findC(){
+        //TODO: Логика нахождения константы
+        return 1;
+    }
+    float[][] linear_matrices() {
+        for (int i = 0; i < result_matrix.length; i++)
+            for (int j = 0; j < result_matrix[i].length; j++)
+                result_matrix[i][j] *= findC();
+        System.out.println("Activation: " + Arrays.deepToString(result_matrix));
+        return result_matrix;
+    }
+
 //    f(x) = cx - linear
 //    f(x) = ln(x) - linear
 //    c - вручную
